@@ -19,7 +19,7 @@ const io =socketIO(server,{cors: {origin: "*"}});// Initialize Socket.IO with th
  
 const PORT = 5004;
 const MONGODB_URI = process.env.MONGODB_URI;
-console.log("abcd", MONGODB_URI)
+
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {

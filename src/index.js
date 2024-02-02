@@ -9,14 +9,17 @@ const productRoutes = require('./app/routes/productroute');
 const orderRoutes= require('./app/routes/orderroute');
 const restaurantRoutes= require('./app/routes/restaurantroute')
 const notificationscontroller= require('./app/controllers/notificationcontroller')
-const Restaurant= require('./app/models/restaurants')
+const Restaurant= require('./app/models/restaurants');
+require('dotenv').config();
+
 
 const app = express();
 const server = http.createServer(app);
 const io =socketIO(server,{cors: {origin: "*"}});// Initialize Socket.IO with the server
  
 const PORT = 5004;
-const MONGODB_URI = 'mongodb+srv://f20200278:TRSABCGG@cluster0.xm5tetj.mongodb.net/Node-API?retryWrites=true&w=majority';
+const MONGODB_URI = process.env.MONGODB_URI;
+console.log("abcd", MONGODB_URI)
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
